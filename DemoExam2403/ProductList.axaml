@@ -1,0 +1,107 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+        x:Class="DemoExam2403.ProductList"
+		x:CompileBindings="False"
+        Title="Мастер Пол — Товары"
+		Width="600" Height="450"
+		MinWidth="600" MinHeight="450"
+		WindowStartupLocation="CenterOwner"
+		Icon="/Assets/icon.ico">
+	<DockPanel
+		Margin="10">
+		<Grid
+			RowDefinitions="Auto"
+			ColumnDefinitions="Auto * Auto"
+			DockPanel.Dock="Top"
+			Margin="0 0 0 10">
+			<Button
+				Click="GoBackButton_Click"
+				Background="#67BA80"
+				FontFamily="Seggoe UI"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				Width="35"
+				Height="35"
+				ToolTip.Tip="Назад">
+				<TextBlock
+					Text="&lt;"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"/>
+			</Button>
+			<TextBlock
+				Text="Список товаров"
+				Grid.Column="1"
+				FontFamily="Segoe UI"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				FontSize="30"
+				FontWeight="SemiBold"/>
+			<Button
+				Click="AddProductButton_Click"
+				Background="#67BA80"
+				FontFamily="Seggoe UI"
+				Grid.Column="2"
+				HorizontalAlignment="Right"
+				Width="35"
+				Height="35"
+				ToolTip.Tip="Добавить товар">
+				<TextBlock
+					Text="+"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"/>
+			</Button>
+		</Grid>
+		<StackPanel>
+			<ListBox
+				Name="ProductListBox"
+				Background="#F4E8D3"
+				Height="380"
+				BorderBrush="Black"
+				BorderThickness="1">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border
+							Padding="5"
+							BorderBrush="Black"
+							BorderThickness="1"
+							Background="{Binding ItemColor}">
+							<DockPanel>
+								<TextBlock
+									Text="{Binding Article}"
+									DockPanel.Dock="Top"
+									HorizontalAlignment="Right"
+									FontFamily="Seggoe UI"/>
+								<StackPanel
+									DockPanel.Dock="Bottom"
+									Orientation="Horizontal">
+									<TextBlock
+										Text="Есть у следующих партнёров: "
+										FontFamily="Seggoe UI"/>
+									<TextBlock
+										Text="{Binding PartnerNames}"
+										FontFamily="Seggoe UI"
+										TextWrapping="Wrap"
+										MaxWidth="300"/>
+								</StackPanel>
+								<StackPanel>
+									<TextBlock
+										Text="{Binding Name}"
+										FontFamily="Seggoe UI"/>
+									<TextBlock
+										Text="{Binding TypeNavigation.Name}"
+										FontFamily="Seggoe UI"/>
+									<TextBlock
+										Text="{Binding TypeNavigation.Coefficient}"
+										FontFamily="Seggoe UI"/>
+								</StackPanel>
+							</DockPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</DockPanel>
+</Window>
