@@ -64,9 +64,12 @@
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<Border
+							Tag="{Binding Id}"
+							DoubleTapped="Partner_DoubleTapped"
 							Padding="10"
 							BorderBrush="Black"
-							BorderThickness="1">
+							BorderThickness="1"
+							Background="#F4E8D3">
 							<DockPanel>
 								<Grid
 									RowDefinitions="Auto"

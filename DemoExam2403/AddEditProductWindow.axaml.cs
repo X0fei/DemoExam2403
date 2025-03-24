@@ -5,11 +5,14 @@ using DemoExam2403.Context;
 using DemoExam2403.Models;
 using System.Collections.Generic;
 using System;
+using DemoExam2403.Utils;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoExam2403;
 
 public partial class AddEditProductWindow : Window
 {
+    int productID = 0;
     public AddEditProductWindow()
     {
         InitializeComponent();
@@ -22,8 +25,18 @@ public partial class AddEditProductWindow : Window
     public AddEditProductWindow(int id)
     {
         InitializeComponent();
+        productID = id;
         Title = "Мастер Пол — Редактирование товара";
         TypeComboBox.ItemsSource = Utils.Context.productTypes;
+        using (var context = new User21Context())
+        {
+            var product = context.Products.Find(this.productID);
+
+            Article.Text = product.Article;
+            Name.Text = product.Name;
+            TypeComboBox.SelectedIndex = (int)product.Type - 1;
+            MinimalCost.Value = product.MinimalCost;
+        }
         AddEditProductButton.Content = "Редактировать товар";
     }
 
@@ -58,10 +71,15 @@ public partial class AddEditProductWindow : Window
             TypeComboBox.SelectedIndex != -1 &&
             MinimalCost.Value != null)
         {
-            AddProduct();
-
-            ProductList productList = new();
-            productList.Show();
+            if (productID == 0)
+            {
+                AddProduct();
+            }
+            else
+            {
+                EditProduct();
+            }
+            new ProductList().Show();
             Close();
         }
     }
@@ -85,10 +103,21 @@ public partial class AddEditProductWindow : Window
         Utils.Context.products = new List<Product>(Utils.Context.DbContext.Products);
     }
 
+    private void EditProduct()
+    {
+        var product = Utils.Context.DbContext.Products.Find(productID);
+
+        product.Article = Article.Text;
+        product.Name = Name.Text;
+        product.Type = TypeComboBox.SelectedIndex + 1;
+        product.MinimalCost = (decimal)MinimalCost.Value;
+
+        Utils.Context.DbContext.Update(product);
+        Utils.Context.DbContext.SaveChanges();
+    }
     private void GoBackButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        ProductList productList = new();
-        productList.Show();
+        new ProductList().Show();
         Close();
     }
 }
