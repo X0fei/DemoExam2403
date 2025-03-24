@@ -16,14 +16,18 @@ public partial class ProductList : Window
     }
     private void AddProductButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        AddEditProductWindow addEditProductWindow = new AddEditProductWindow();
-        addEditProductWindow.Show();
+        new AddEditProductWindow().Show();
         Close();
     }
     private void GoBackButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        MainWindow mainWindow = new();
-        mainWindow.Show();
+        new MainWindow().Show();
+        Close();
+    }
+
+    private void Product_DoubleTapped(object? sender, Avalonia.Input.TappedEventArgs e)
+    {
+        new AddEditProductWindow(int.Parse((sender as Border).Tag.ToString())).Show();
         Close();
     }
 }

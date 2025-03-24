@@ -36,7 +36,7 @@
 			Click="AddEditPartnerButton_Click"
 			FontFamily="Seggoe UI"/>
 		<Grid
-			RowDefinitions="40, 40, 40, 40, 40, 40, 40"
+			RowDefinitions="40, 40, 40, 40, 40, 40, 40, 40"
 			ColumnDefinitions="*, *"
 			VerticalAlignment="Center">
 			<TextBlock
@@ -157,6 +157,22 @@
 			<TextBox
 				Name="Email"
 				Grid.Row="6"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				Width="200"
+				FontFamily="Seggoe UI"/>
+			<TextBlock
+				Text="ИНН: "
+				Grid.Row="7"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"
+				FontSize="18"/>
+			<TextBox
+				Name="TIN"
+				Grid.Row="7"
 				Grid.Column="1"
 				HorizontalAlignment="Left"
 				VerticalAlignment="Center"

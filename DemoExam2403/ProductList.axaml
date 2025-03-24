@@ -64,6 +64,8 @@
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<Border
+							Tag="{Binding Id}"
+							DoubleTapped="Product_DoubleTapped"
 							Padding="5"
 							BorderBrush="Black"
 							BorderThickness="1"

@@ -16,14 +16,18 @@ public partial class PartnerList : Window
     }
     private void AddProductButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        AddEditPartnerWindow addEditPartnerWindow = new();
-        addEditPartnerWindow.Show();
+        new AddEditPartnerWindow().Show();
         Close();
     }
     private void GoBackButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        MainWindow mainWindow = new();
-        mainWindow.Show();
+        new MainWindow().Show();
+        Close();
+    }
+
+    private void Partner_DoubleTapped(object? sender, Avalonia.Input.TappedEventArgs e)
+    {
+        new AddEditPartnerWindow(int.Parse((sender as Border).Tag.ToString())).Show();
         Close();
     }
 }
