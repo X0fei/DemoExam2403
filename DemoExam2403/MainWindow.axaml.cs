@@ -8,4 +8,18 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void ProductsButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        ProductList productList = new();
+        productList.Show();
+        Close();
+    }
+
+    private void PartnerButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        PartnerList partnerList = new();
+        partnerList.Show();
+        Close();
+    }
 }

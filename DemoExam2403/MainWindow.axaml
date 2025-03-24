@@ -2,8 +2,55 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
         x:Class="DemoExam2403.MainWindow"
-        Title="DemoExam2403">
-    Welcome to Avalonia!
+        Title="Мастер Пол — Главная"
+		Width="600" Height="450"
+		MinWidth="600" MinHeight="450"
+		WindowStartupLocation="CenterOwner"
+		Icon="/Assets/icon.ico">
+	<DockPanel
+		Margin="10">
+		<TextBlock
+			Text="Главное меню"
+			DockPanel.Dock="Top"
+			FontFamily="Segoe UI"
+			FontSize="30"
+			FontWeight="SemiBold"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Center"/>
+		<Grid
+			RowDefinitions="Auto"
+			ColumnDefinitions="* *"
+			VerticalAlignment="Center">
+			<Button
+				Click="ProductsButton_Click"
+				Grid.Row="0"
+				Grid.Column="0"
+				Background="#67BA80"
+				HorizontalAlignment="Center"
+				Width="100"
+				Height="80">
+				<TextBlock
+					Text="Продукты"
+					FontFamily="Segoe UI"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"/>
+			</Button>
+			<Button
+				Click="PartnerButton_Click"
+				Grid.Row="0"
+				Grid.Column="1"
+				Background="#67BA80"
+				HorizontalAlignment="Center"
+				Width="100"
+				Height="80">
+				<TextBlock
+					Text="Партнёры"
+					FontFamily="Segoe UI"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"/>
+			</Button>
+		</Grid>
+	</DockPanel>
 </Window>
