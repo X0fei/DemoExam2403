@@ -4,6 +4,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
         x:Class="DemoExam2403.AddEditProductWindow"
-        Title="Мастер Пол — Добавление/редактирование товара">
-  
+		x:CompileBindings="False"
+        Title="Мастер Пол — Добавление/редактирование товара"
+		Width="600" Height="450"
+		MinWidth="600" MinHeight="450"
+		WindowStartupLocation="CenterOwner"
+		Icon="/Assets/icon.ico">
+	<DockPanel
+		  Margin="10">
+		<Button
+			Name="GoBack"
+			Background="#67BA80"
+			HorizontalAlignment="Left"
+			DockPanel.Dock="Top"
+			Click="GoBackButton_Click"
+			ToolTip.Tip="Назад"
+			FontFamily="Seggoe UI"
+			Width="35"
+			Height="35">
+			<TextBlock
+				Text="&lt;"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"/>
+		</Button>
+		<Button
+			Name="AddEditProductButton"
+			Content="Добавить/редактировать товар"
+			Background="#67BA80"
+			HorizontalAlignment="Center"
+			DockPanel.Dock="Bottom"
+			Click="AddEditProductButton_Click"
+			FontFamily="Seggoe UI"/>
+		<Grid
+			RowDefinitions="50, 50, 50, 50"
+			ColumnDefinitions="*, *"
+			VerticalAlignment="Center">
+			<TextBlock
+				Text="Артикул: "
+				Grid.Row="0"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"
+				FontSize="18"/>
+			<TextBlock
+				Name="Article"
+				Text="*артикул*"
+				Grid.Row="0"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"/>
+			<TextBlock
+				Text="Наименование: "
+				Grid.Row="1"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"
+				FontSize="18"/>
+			<TextBox
+				Name="Name"
+				Grid.Row="1"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				Width="200"
+				FontFamily="Seggoe UI"/>
+			<TextBlock
+				Text="Тип: "
+				Grid.Row="2"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"
+				FontSize="18"/>
+			<ComboBox
+				Name="TypeComboBox"
+				PlaceholderText="Выбрать"
+				Grid.Row="2"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock
+							Text="{Binding Name}"/>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<TextBlock
+				Text="Минимальная стоимость: "
+				Grid.Row="3"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				FontFamily="Seggoe UI"
+				FontSize="18"/>
+			<NumericUpDown
+				Name="MinimalCost"
+				Grid.Row="3"
+				Grid.Column="1"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				Width="100"
+				FontFamily="Seggoe UI"
+				Minimum="0"
+				AllowSpin="False"
+				ShowButtonSpinner="False"
+				FormatString="0.00"/>
+		</Grid>
+	</DockPanel>
 </Window>

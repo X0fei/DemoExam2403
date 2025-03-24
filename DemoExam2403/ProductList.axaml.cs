@@ -14,7 +14,6 @@ public partial class ProductList : Window
         InitializeComponent();
         ProductListBox.ItemsSource = displayList;
     }
-
     private void AddProductButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         AddEditProductWindow addEditProductWindow = new AddEditProductWindow();

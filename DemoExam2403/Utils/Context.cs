@@ -19,5 +19,6 @@ namespace DemoExam2403.Utils
             .Include(partner => partner.TypeNavigation)
             .Include(partner => partner.PartnersProducts)];
         public static List<ProductType> productTypes { get; set; } = [.. DbContext.ProductTypes];
+        public static List<PartnerType> partnerTypes { get; set; } = [.. DbContext.PartnerTypes];
     }
 }

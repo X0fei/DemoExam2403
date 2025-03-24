@@ -20,7 +20,6 @@ public partial class PartnerList : Window
         addEditPartnerWindow.Show();
         Close();
     }
-
     private void GoBackButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         MainWindow mainWindow = new();
